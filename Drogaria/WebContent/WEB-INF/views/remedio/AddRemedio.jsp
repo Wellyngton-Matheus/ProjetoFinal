@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h3>Adicionar Remédio</h3>
-	<form action="adicionaTarefa" method="post">
+	<form action="adiciona Remedio" method="post">
 		Remédio: <br />
 		<textarea name="Remédio" rows="5" cols="100"></textarea>
 		<br /> <input type="submit" value="Adicionar">

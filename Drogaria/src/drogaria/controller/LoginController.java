@@ -5,7 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import drogaria.dao.UsuarioDAO;
+import drogaria.dao.ClienteDAO;
 import drogaria.models.Usuario;
 
 @Controller
@@ -17,7 +17,7 @@ public class LoginController {
 
 	@RequestMapping("efetuaLogin")
 	public String efetuaLogin(Usuario usuario, HttpSession session) {
-		if (new UsuarioDAO() .existeUsuario(usuario)) {
+		if (new ClienteDAO() .existeUsuario(usuario)) {
 			session.setAttribute("usuarioLogado", usuario);
 			return "menu";
 		}
