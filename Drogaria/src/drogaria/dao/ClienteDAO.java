@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
 import drogaria.models.Usuario;
 
 public class ClienteDAO {
@@ -14,6 +15,30 @@ public class ClienteDAO {
 
 	public ClienteDAO() {
 		connection = ConnectionFactory.getConnection();
+	}
+
+	public boolean inserir(Usuario usuario) {
+
+		String sql = "insert into usuario (nome, senha, cpf, email, numero) values (?, ?, ?, ?, ?);";
+
+		try {
+			PreparedStatement stmt = connection.prepareStatement(sql);
+
+			stmt.setString(1, usuario.getNome());
+			stmt.setString(2, usuario.getSenha());
+			stmt.setString(3, usuario.getCpf());
+			stmt.setString(4, usuario.getEmail());
+			stmt.setString(5, usuario.getNumero());
+			stmt.execute();
+			stmt.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+
+		return true;
 	}
 
 	public boolean existeUsuario(Usuario usuario) {
@@ -56,6 +81,9 @@ public class ClienteDAO {
 				Usuario usuario = new Usuario();
 				usuario.setNome(rs.getString("nome"));
 				usuario.setSenha(rs.getString("senha"));
+				usuario.setCpf(rs.getString("cpf"));
+				usuario.setEmail(rs.getString("email"));
+				usuario.setNumero(rs.getString("numero"));
 
 				result.add(usuario);
 			}
@@ -75,8 +103,8 @@ public class ClienteDAO {
 			stmt.setString(1, usuario.getNome());
 			stmt.setString(2, usuario.getSenha());
 			stmt.setString(3, usuario.getCpf());
-			stmt.setString(5, usuario.getEmail());
-			stmt.setString(6, usuario.getNumero());
+			stmt.setString(4, usuario.getEmail());
+			stmt.setString(5, usuario.getNumero());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
