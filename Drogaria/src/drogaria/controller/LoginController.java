@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import drogaria.dao.ClienteDAO;
-import drogaria.models.Usuario;
+import drogaria.models.Cliente;
 
 @Controller
 public class LoginController {
@@ -16,9 +16,9 @@ public class LoginController {
 	}
 
 	@RequestMapping("efetuaLogin")
-	public String efetuaLogin(Usuario usuario, HttpSession session) {
-		if (new ClienteDAO() .existeUsuario(usuario)) {
-			session.setAttribute("usuarioLogado", usuario);
+	public String efetuaLogin(Cliente cliente, HttpSession session) {
+		if (new ClienteDAO() .existeCliente(cliente)) {
+			session.setAttribute("usuarioLogado", cliente);
 			return "menu";
 		}
 		return "redirect:loginForm";

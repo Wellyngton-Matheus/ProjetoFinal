@@ -34,7 +34,7 @@ public class RemedioController {
 			RemedioDAO remedioDAO = new RemedioDAO();
 			List<Remedio> lista = remedioDAO.getLista();
 			ModelAndView model = new ModelAndView("Remedio/ListarRemedio");
-			model.addObject("remedio", lista);
+			model.addObject("remedios", lista);
 			return model;
 		}
 

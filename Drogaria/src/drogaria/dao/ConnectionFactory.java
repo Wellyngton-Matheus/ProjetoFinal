@@ -8,7 +8,7 @@ public class ConnectionFactory {
 	private static Connection con = null;
 	private static final String banco = "drogaria";
 	private static final String user = "root";
-	private static final String password = "sena1290";
+	private static final String password = "lab02";
 
 	public static Connection getConnection() {
 		if (con == null) {

@@ -4,7 +4,7 @@ public class Remedio {
 	private Long id;
 	private String nome;
 	private String funcionalidade;
-	private String preço;
+	private String preco;
 	private Boolean generico;
 
 	public Long getId() {
@@ -31,12 +31,12 @@ public class Remedio {
 		this.funcionalidade = funcionalidade;
 	}
 
-	public String getPreço() {
-		return preço;
+	public String getpreco() {
+		return preco;
 	}
 
-	public void setPreço(String preço) {
-		this.preço = preço;
+	public void setpreco(String preco) {
+		this.preco = preco;
 	}
 
 	public Boolean isGenerico() {

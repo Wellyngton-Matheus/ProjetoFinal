@@ -1,17 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Clientes Cadastrados</title>
+<title>Usuarios Cadastrados</title>
 </head>
 <body>
 
 	<c:import url="../menu.jsp"></c:import>
 
 
-	<h1>Lista de Clientes</h1>
+	<h1>Lista de clientes</h1>
 
 	<table border="1">
 		<thead>
@@ -24,14 +26,14 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="usuario" items="${usuario }">
+			<c:forEach var="cliente" items="${clientes }">
 				<tr>
-					<td>${usuario.nome }</td>
-					<td>${usuario.senha }</td>
-					<td>${usuario.cpf }</td>
-					<td>${usuario.Email }</td>
-					<td>${usuario.Numero }</td>
-					<td><a href="/Drogaria/Cliente/remover?id=${usuario.id }">Remover</a></td>
+					<td>${cliente.nome }</td>
+					<td>${cliente.senha }</td>
+					<td>${cliente.cpf }</td>
+					<td>${cliente.email }</td>
+					<td>${cliente.numero }</td>
+					<td><a href="/Drogaria/Cliente/remover?id=${cliente.id }">Remover</a></td>
 				</tr>
 			</c:forEach>
 

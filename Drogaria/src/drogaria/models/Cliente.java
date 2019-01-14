@@ -1,6 +1,6 @@
 package drogaria.models;
 
-public class Usuario {
+public class Cliente {
 	private Long id;
 	private String nome;
 	private String senha;
@@ -46,7 +46,7 @@ public class Usuario {
 	}
 	@Override
 	public String toString() {
-		return "Usuario [nome=" + nome + ", senha=" + senha + ", cpf=" + cpf + ", email=" + email + ", numero=" + numero
+		return "Cliente [nome=" + nome + ", senha=" + senha + ", cpf=" + cpf + ", email=" + email + ", numero=" + numero
 				+ "]";
 	}
 

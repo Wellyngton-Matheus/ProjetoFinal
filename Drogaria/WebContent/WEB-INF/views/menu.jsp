@@ -8,8 +8,8 @@
 		<li><a href="/Drogaria/Cliente/form">Adicionar Cliente</a></li>
 		<li><a href="/Drogaria/Remedio/AddRemedio">Adicionar Remedio</a></li>
 		<li><a href="/Drogaria/Cliente/ListarCliente">Listar Clientes</a></li>
-		<li><a href="/Drogaria/Remedio/ListarLivro">Listar Remedio</a></li>
-		<li><a href="/Drogaria/Emprestimo/formEmp">efetuar compra</a></li>
-		<li><a href="/Drogaria/Emprestimo/ListarEmp">Listar vendas</a></li>
+		<li><a href="/Drogaria/Remedio/ListarRemedio">Listar Remedio</a></li>
+		<li><a href="/Drogaria/Venda/formVenda">efetuar compra</a></li>
+		<li><a href="/Drogaria/Venda/ListarVenda">Listar vendas</a></li>
 	</ul>
 </nav>

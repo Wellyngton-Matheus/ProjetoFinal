@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import drogaria.dao.ClienteDAO;
-import drogaria.models.Usuario;
+import drogaria.models.Cliente;
 
 @Controller
 @RequestMapping("/Cliente")
@@ -21,7 +21,7 @@ public class ClienteController {
 	}
 
 	@PostMapping("/executarCadastro")
-	public String adicionar(Usuario usuario) {
+	public String adicionar(Cliente usuario) {
 		System.out.println(usuario);
 		ClienteDAO clienteDAO = new ClienteDAO();
 		clienteDAO.inserir(usuario);
@@ -31,14 +31,14 @@ public class ClienteController {
 	@GetMapping("/ListarCliente")
 	public ModelAndView listar() {
 		ClienteDAO clienteDAO = new ClienteDAO();
-		List<Usuario> lista = clienteDAO.getLista();
+		List<Cliente> lista = clienteDAO.getLista();
 		ModelAndView model = new ModelAndView("Cliente/ListarCliente");
-		model.addObject("usuario", lista);
+		model.addObject("clientes", lista);
 		return model;
 	}
 
 	@RequestMapping("remover")
-	public ModelAndView remover(Usuario cliente) {
+	public ModelAndView remover(Cliente cliente) {
 		System.out.println("Chamou o metodo remover cliente");
 		ClienteDAO clienteDAO = new ClienteDAO();
 		clienteDAO.remover(cliente);

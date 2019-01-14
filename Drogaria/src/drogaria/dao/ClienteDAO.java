@@ -7,7 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import drogaria.models.Usuario;
+import drogaria.models.Cliente;
+
+
 
 public class ClienteDAO {
 
@@ -17,18 +19,18 @@ public class ClienteDAO {
 		connection = ConnectionFactory.getConnection();
 	}
 
-	public boolean inserir(Usuario usuario) {
+	public boolean inserir(Cliente cliente) {
 
-		String sql = "insert into usuario (nome, senha, cpf, email, numero) values (?, ?, ?, ?, ?);";
+		String sql = "insert into cliente (nome, senha, cpf, email, numero) values (?, ?, ?, ?, ?);";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
-			stmt.setString(1, usuario.getNome());
-			stmt.setString(2, usuario.getSenha());
-			stmt.setString(3, usuario.getCpf());
-			stmt.setString(4, usuario.getEmail());
-			stmt.setString(5, usuario.getNumero());
+			stmt.setString(1, cliente.getNome());
+			stmt.setString(2, cliente.getSenha());
+			stmt.setString(3, cliente.getCpf());
+			stmt.setString(4, cliente.getEmail());
+			stmt.setString(5, cliente.getNumero());
 			stmt.execute();
 			stmt.close();
 
@@ -41,15 +43,15 @@ public class ClienteDAO {
 		return true;
 	}
 
-	public boolean existeUsuario(Usuario usuario) {
+	public boolean existeCliente(Cliente cliente) {
 
-		String sql = "select * from usuario where usuario= ?  and senha= ?";
+		String sql = "select * from cliente where cliente= ?  and senha= ?";
 
 		try {
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
 
-			stmt.setString(1, usuario.getNome());
-			stmt.setString(2, usuario.getSenha());
+			stmt.setString(1, cliente.getNome());
+			stmt.setString(2, cliente.getSenha());
 
 			ResultSet rs = stmt.executeQuery();
 
@@ -69,23 +71,24 @@ public class ClienteDAO {
 		}
 	}
 
-	public List<Usuario> getLista() {
-		List<Usuario> result = new ArrayList<>();
+	public List<Cliente> getLista() {
+		List<Cliente> result = new ArrayList<>();
 
 		try {
-			PreparedStatement stmt = this.connection.prepareStatement("select * from usuario;");
+			PreparedStatement stmt = this.connection.prepareStatement("select * from cliente;");
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
 
-				Usuario usuario = new Usuario();
-				usuario.setNome(rs.getString("nome"));
-				usuario.setSenha(rs.getString("senha"));
-				usuario.setCpf(rs.getString("cpf"));
-				usuario.setEmail(rs.getString("email"));
-				usuario.setNumero(rs.getString("numero"));
+				Cliente cliente = new Cliente();
+				cliente.setId(rs.getLong("id"));
+				cliente.setNome(rs.getString("nome"));
+				cliente.setSenha(rs.getString("senha"));
+				cliente.setCpf(rs.getString("cpf"));
+				cliente.setEmail(rs.getString("email"));
+				cliente.setNumero(rs.getString("numero"));
 
-				result.add(usuario);
+				result.add(cliente);
 			}
 			rs.close();
 			stmt.close();
@@ -96,15 +99,15 @@ public class ClienteDAO {
 		return result;
 	}
 
-	public boolean alterar(Usuario usuario) {
-		String sql = "update usuario set nome=?, senha=?, cpf=?, email=?, numero=? where id=?;";
+	public boolean alterar(Cliente cliente) {
+		String sql = "update cliente set nome=?, senha=?, cpf=?, email=?, numero=? where id=?;";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setString(1, usuario.getNome());
-			stmt.setString(2, usuario.getSenha());
-			stmt.setString(3, usuario.getCpf());
-			stmt.setString(4, usuario.getEmail());
-			stmt.setString(5, usuario.getNumero());
+			stmt.setString(1, cliente.getNome());
+			stmt.setString(2, cliente.getSenha());
+			stmt.setString(3, cliente.getCpf());
+			stmt.setString(4, cliente.getEmail());
+			stmt.setString(5, cliente.getNumero());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
@@ -114,10 +117,10 @@ public class ClienteDAO {
 		return true;
 	}
 
-	public boolean remover(Usuario usuario) {
+	public boolean remover(Cliente cliente) {
 		try {
-			PreparedStatement stmt = connection.prepareStatement("delete from usuario where id=?;");
-			stmt.setLong(1, usuario.getId());
+			PreparedStatement stmt = connection.prepareStatement("delete from cliente where id=?;");
+			stmt.setLong(1, cliente.getId());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
@@ -127,18 +130,18 @@ public class ClienteDAO {
 		return true;
 	}
 
-	public Usuario getById(long l) {
-		Usuario result = null;
+	public Cliente getById(long l) {
+		Cliente result = null;
 
 		try {
-			PreparedStatement stmt = this.connection.prepareStatement("select * from usuario where id = ?;");
+			PreparedStatement stmt = this.connection.prepareStatement("select * from cliente where id = ?;");
 			stmt.setInt(1, (int) l);
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {
 				// criando o objeto Contato
 
-				result = new Usuario();
+				result = new Cliente();
 				result.setId(rs.getLong("id"));
 				result.setNome(rs.getString("nome"));
 				result.setCpf(rs.getString("cpf"));

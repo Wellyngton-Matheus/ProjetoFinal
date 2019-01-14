@@ -7,6 +7,6 @@
 <title>Cadastrando Remdio</title>
 </head>
 <body>
-	<h1>O livro foi cadastrado</h1>
+	<h1>O Remedio foi cadastrado</h1>
 </body>
 </html>
