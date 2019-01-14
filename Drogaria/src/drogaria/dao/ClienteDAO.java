@@ -97,7 +97,7 @@ public class ClienteDAO {
 	}
 
 	public boolean alterar(Usuario usuario) {
-		String sql = "update usuario set nome=?, senha=?, cpf=?, Email=?, Numero=? where id=?;";
+		String sql = "update usuario set nome=?, senha=?, cpf=?, email=?, numero=? where id=?;";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, usuario.getNome());

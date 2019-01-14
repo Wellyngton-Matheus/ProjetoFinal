@@ -12,9 +12,6 @@
 
 	<h3>Adicionar Remédio</h3>
 	<form action="/Drogaria/Remedio/executarCadastro" method="post">
-		Remédio: <br />
-		<textarea name="Remédio" rows="5" cols="100"></textarea>
-		<br /> <input type="submit" value="Adicionar">
 		<div>
 			<label>Nome:</label>
 			<input type="text" name="nome">

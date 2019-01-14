@@ -18,14 +18,13 @@ public class RemedioDAO {
 	}
 
 	public boolean inserir(Remedio remedio) {
-		String sql = "insert into remedio (nome, funcionalidade, preço, generico) values (?, ?, ?, ?);";
+		String sql = "insert into remedio (nome, funcionalidade, preço) values (?, ?, ?, ?);";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, remedio.getNome());
 			stmt.setString(2, remedio.getFuncionalidade());
 			stmt.setString(3, remedio.getPreço());
-			stmt.setBoolean(4, remedio.isGenerico());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {

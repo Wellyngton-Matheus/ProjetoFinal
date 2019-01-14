@@ -9,6 +9,6 @@
 	</head>
 	<body>
 		<c:import url="menu.jsp"></c:import>
-		<h1>Bem vindo a biblioteca</h1>
+		<h1>Welcome the Drugstore</h1>
 	</body>
 </html>
