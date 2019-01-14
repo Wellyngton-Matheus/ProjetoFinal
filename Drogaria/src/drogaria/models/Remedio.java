@@ -1,6 +1,7 @@
 package drogaria.models;
 
 public class Remedio {
+	
 	private Long id;
 	private String nome;
 	private String funcionalidade;
@@ -31,11 +32,11 @@ public class Remedio {
 		this.funcionalidade = funcionalidade;
 	}
 
-	public String getpreco() {
+	public String getPreco() {
 		return preco;
 	}
 
-	public void setpreco(String preco) {
+	public void setPreco(String preco) {
 		this.preco = preco;
 	}
 
@@ -46,5 +47,12 @@ public class Remedio {
 	public void setGenerico(Boolean generico) {
 		this.generico = generico;
 	}
+	
+	@Override
+	public String toString() {
+		return "Remedio [id=" + id + ", nome=" + nome + ", funcionalidade=" + funcionalidade + ", preco=" + preco
+				+ ", generico=" + generico + "]";
+	}
+
 
 }

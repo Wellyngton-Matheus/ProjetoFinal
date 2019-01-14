@@ -13,7 +13,7 @@ import drogaria.models.Cliente;
 
 public class ClienteDAO {
 
-	Connection connection;
+	private Connection connection;
 
 	public ClienteDAO() {
 		connection = ConnectionFactory.getConnection();
@@ -24,8 +24,8 @@ public class ClienteDAO {
 		String sql = "insert into cliente (nome, senha, cpf, email, numero) values (?, ?, ?, ?, ?);";
 
 		try {
-			PreparedStatement stmt = connection.prepareStatement(sql);
-
+			PreparedStatement stmt = this.connection.prepareStatement(sql);
+			
 			stmt.setString(1, cliente.getNome());
 			stmt.setString(2, cliente.getSenha());
 			stmt.setString(3, cliente.getCpf());

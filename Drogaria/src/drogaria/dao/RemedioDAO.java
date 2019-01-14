@@ -18,13 +18,13 @@ public class RemedioDAO {
 	}
 
 	public boolean inserir(Remedio remedio) {
-		String sql = "insert into remedio (nome, funcionalidade, preço) values (?, ?, ?, ?);";
+		String sql = "insert into remedio (nome, funcionalidade, preco) values (?, ?, ?, ?);";
 
 		try {
-			PreparedStatement stmt = connection.prepareStatement(sql);
+			PreparedStatement stmt = this.connection.prepareStatement(sql);
 			stmt.setString(1, remedio.getNome());
 			stmt.setString(2, remedio.getFuncionalidade());
-			stmt.setString(3, remedio.getPreço());
+			stmt.setString(3, remedio.getPreco());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
@@ -47,7 +47,7 @@ public class RemedioDAO {
 				remedio.setId(rs.getLong("id"));
 				remedio.setNome(rs.getString("nome"));
 				remedio.setFuncionalidade(rs.getString("funcionalidade"));
-				remedio.setPreço(rs.getString("preço"));
+				remedio.setPreco(rs.getString("preco"));
 				remedio.setGenerico(rs.getBoolean("generico"));
 
 				result.add(remedio);
@@ -74,12 +74,12 @@ public class RemedioDAO {
 		return true;
 	}
 
-	public Remedio getByNome(String nome) {
+	public Remedio getById(long l) {
 		Remedio result = null;
 
 		try {
 			PreparedStatement stmt = this.connection.prepareStatement("select * from remedio where titulo = ?;");
-			stmt.setString(1, nome);
+			stmt.setLong(1, l);
 			ResultSet rs = stmt.executeQuery();
 
 			if (rs.next()) {
@@ -88,7 +88,7 @@ public class RemedioDAO {
 				result.setId(rs.getLong("id"));
 				result.setNome(rs.getString("nome"));
 				result.setFuncionalidade(rs.getString("Funcionalidade"));
-				result.setPreço(rs.getString("preço"));
+				result.setPreco(rs.getString("preco"));
 				result.setGenerico(rs.getBoolean("generico"));
 			}
 			rs.close();

@@ -8,9 +8,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import bibliotecaspring.models.venda;
-import bibliotecaspring.models.venda;
-import bibliotecaspring.models.venda;
+import drogaria.models.Cliente;
+import drogaria.models.Remedio;
+import drogaria.models.Venda;
+
 
 
 public class VendaDAO {
@@ -21,13 +22,13 @@ public class VendaDAO {
 	}
 	public boolean inserir(Venda venda) {
 
-		String sql = "insert into venda (livro, venda, datavenda, dataDevolucao) values (?, ?, ?, ?);";
+		String sql = "insert into venda (remedio, cliente, datavenda, dataDevolucao) values (?, ?, ?, ?);";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
-			stmt.setLong(1, venda.getLivro().getId());
-			stmt.setLong(2, venda.getvenda().getId());			
+			stmt.setLong(1, venda.getRemedio().getId());
+			//stmt.setLong(2, venda.getCliente().getId());			
 			Calendar dataEmp = Calendar.getInstance();
 			stmt.setDate(3, new java.sql.Date(dataEmp.getTimeInMillis()));
 			stmt.setDate(4, null);
@@ -42,38 +43,16 @@ public class VendaDAO {
 		}
 		return false;
 	}
-	public boolean qtdVendas(Venda venda) throws SQLException {
 
-		try {
-			PreparedStatement stmt = connection
-					.prepareStatement("select * from venda where usuario = ? and dataDevolucao IS NULL;");
-			stmt.setLong(1, venda.getvenda().getId());
-			ResultSet rs = stmt.executeQuery();
-			int cont = 0;
-			while (rs.next()) {
-				cont++;
-			}
-			stmt.close();
-			if (cont > 2) {
-				return false;
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return false;
-		}
-
-		return true;
-
-	}
 	public List<Venda> getLista() {
 		try {
 
-			List<venda> venda = new ArrayList<venda>();
+			List<Venda> venda = new ArrayList<Venda>();
 			PreparedStatement stmt = connection.prepareStatement("select * from venda;");
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
-				venda.add (criandovenda(rs));
+				venda.add (criandoVenda(rs));
 				
 			}
 			rs.close();
@@ -84,5 +63,59 @@ public class VendaDAO {
 		}
 
 	}
+	public boolean remover(Venda venda) {
+		try {
+			PreparedStatement stmt = connection.prepareStatement("delete from venda where id=?;");
+			stmt.setLong(1, venda.getId());
+			stmt.execute();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	private Venda criandoVenda(ResultSet rs) throws SQLException {
+		Venda venda = new Venda();
 
+		venda.setId(rs.getLong("id"));
+		Cliente cliente = new ClienteDAO().getById(rs.getLong("cliente"));
+		venda.setCliente(cliente);
+		Remedio remedio = new RemedioDAO().getById(rs.getLong("remedio"));
+		venda.setRemedio(remedio);
+
+		Calendar data = Calendar.getInstance();
+		data.setTime(rs.getDate("datavenda"));
+		venda.setDataVenda(data);
+
+		if (rs.getDate("dataDevolucao") != null) {
+			Calendar data2 = Calendar.getInstance();
+			data2.setTime(rs.getDate("dataDevolucao"));
+			//venda.setDataDevolucao(data2);
+		}
+
+		return venda;
+	}
+	public Venda getvendaByID(Long id) {
+		try {
+
+			Venda venda = null;
+			PreparedStatement stmt = this.connection.prepareStatement("select * from vendas where id=?;");
+			stmt.setLong(1, id);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				venda = criandoVenda(rs);
+			}
+			rs.close();
+			stmt.close();
+			return venda;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+
+		}
+	}
+	public void efetuada(Venda venda) {
+		// TODO Auto-generated method stub
+		
+	}
 }

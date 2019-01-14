@@ -21,10 +21,10 @@ public class ClienteController {
 	}
 
 	@PostMapping("/executarCadastro")
-	public String adicionar(Cliente usuario) {
-		System.out.println(usuario);
+	public String adicionar(Cliente cliente) {
+		System.out.println(cliente);
 		ClienteDAO clienteDAO = new ClienteDAO();
-		clienteDAO.inserir(usuario);
+		clienteDAO.inserir(cliente);
 		return "Cliente/ClienteCadastrado";
 	}
 

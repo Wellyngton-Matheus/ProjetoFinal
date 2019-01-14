@@ -9,7 +9,7 @@
 		<li><a href="/Drogaria/Remedio/AddRemedio">Adicionar Remedio</a></li>
 		<li><a href="/Drogaria/Cliente/ListarCliente">Listar Clientes</a></li>
 		<li><a href="/Drogaria/Remedio/ListarRemedio">Listar Remedio</a></li>
-		<li><a href="/Drogaria/Venda/formVenda">efetuar compra</a></li>
-		<li><a href="/Drogaria/Venda/ListarVenda">Listar vendas</a></li>
+		<li><a href="/Drogaria/Venda/formVenda">Efetuar compras</a></li>
+		<li><a href="/Drogaria/Venda/ListarVenda">Listar Vendas</a></li>
 	</ul>
 </nav>
