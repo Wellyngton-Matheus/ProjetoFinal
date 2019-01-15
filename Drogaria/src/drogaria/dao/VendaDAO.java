@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+
+
 import drogaria.models.Cliente;
 import drogaria.models.Remedio;
 import drogaria.models.Venda;
@@ -22,15 +24,15 @@ public class VendaDAO {
 	}
 	public boolean inserir(Venda venda) {
 
-		String sql = "insert into venda (remedio, cliente, datavenda, dataDevolucao) values (?, ?, ?, ?);";
+		String sql = "insert into venda (cliente, remedio, dataVenda) values (?, ?, ?);";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
 			stmt.setLong(1, venda.getRemedio().getId());
 			//stmt.setLong(2, venda.getCliente().getId());			
-			Calendar dataEmp = Calendar.getInstance();
-			stmt.setDate(3, new java.sql.Date(dataEmp.getTimeInMillis()));
+			Calendar dataVenda = Calendar.getInstance();
+			stmt.setDate(3, new java.sql.Date(dataVenda.getTimeInMillis()));
 			stmt.setDate(4, null);
 			
 			stmt.execute();
@@ -85,14 +87,10 @@ public class VendaDAO {
 		venda.setRemedio(remedio);
 
 		Calendar data = Calendar.getInstance();
-		data.setTime(rs.getDate("datavenda"));
+		data.setTime(rs.getDate("dataVenda"));
 		venda.setDataVenda(data);
 
-		if (rs.getDate("dataDevolucao") != null) {
-			Calendar data2 = Calendar.getInstance();
-			data2.setTime(rs.getDate("dataDevolucao"));
-			//venda.setDataDevolucao(data2);
-		}
+		
 
 		return venda;
 	}
@@ -100,7 +98,7 @@ public class VendaDAO {
 		try {
 
 			Venda venda = null;
-			PreparedStatement stmt = this.connection.prepareStatement("select * from vendas where id=?;");
+			PreparedStatement stmt = connection.prepareStatement("select * from venda where id=?;");
 			stmt.setLong(1, id);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {

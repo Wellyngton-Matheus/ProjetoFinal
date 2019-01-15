@@ -4,7 +4,7 @@
 
 <nav>
  	<ul>
-		<li><a href="Drogaria">Home</a></li>
+		<li><a href="/Drogaria/">Home</a></li>
 		<li><a href="/Drogaria/Cliente/form">Adicionar Cliente</a></li>
 		<li><a href="/Drogaria/Remedio/AddRemedio">Adicionar Remedio</a></li>
 		<li><a href="/Drogaria/Cliente/ListarCliente">Listar Clientes</a></li>

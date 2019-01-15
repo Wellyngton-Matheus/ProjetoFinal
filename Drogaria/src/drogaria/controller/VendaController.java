@@ -1,4 +1,4 @@
-/*package drogaria.controller;
+package drogaria.controller;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import drogaria.dao.ClienteDAO;
 import drogaria.dao.RemedioDAO;
 import drogaria.dao.VendaDAO;
 import drogaria.models.Remedio;
-import drogaria.models.Usuario;
+import drogaria.models.Cliente;
 import drogaria.models.Venda;
 
 @Controller
@@ -22,12 +22,12 @@ public class VendaController {
 	public ModelAndView form() {
 		System.out.println("Chamou método form");
 		ClienteDAO clienteDAO = new ClienteDAO();
-		List<Usuario> listaCliente = clienteDAO.getLista();
+		List<Cliente> listaCliente = clienteDAO.getLista();
 		RemedioDAO remedioDAO = new RemedioDAO();
 		List<Remedio> listaRemedio = remedioDAO.getLista();
-		ModelAndView model = new ModelAndView("venda/formEmp");
-		model.addObject("usuario", listaCliente);
-		model.addObject("remedio", listaRemedio);
+		ModelAndView model = new ModelAndView("Venda/formVenda");
+		model.addObject("clientes", listaCliente);
+		model.addObject("remedios", listaRemedio);
 		return model;
 
 	}
@@ -41,12 +41,12 @@ public class VendaController {
 	}
 
 
-	@GetMapping("/Venda/ListarVendas")
+	@GetMapping("/Venda/ListarVenda")
 	public ModelAndView listar() {
 		VendaDAO vendaDAO = new VendaDAO();
 		List<Venda> listaVenda = vendaDAO.getLista();
-		ModelAndView model = new ModelAndView("Venda/ListarVendas");
-		model.addObject("venda", listaVenda);
+		ModelAndView model = new ModelAndView("Venda/ListarVenda");
+		model.addObject("vendas", listaVenda);
 		return model;
 	}
 
@@ -58,7 +58,7 @@ public class VendaController {
 		System.out.println(venda);
 		vendaDAO.efetuada(venda);
 		
-		return "redirect:../venda/ListarVendas";
+		return "redirect:../venda/ListarVenda";
 	
 
 	}
@@ -70,5 +70,5 @@ public class VendaController {
 		return listar();
 	}
 
+
 }
-*/

@@ -6,11 +6,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Cadastrando Remdio</title>
+<title>Insert title here</title>
 </head>
-	<c:import url="../menu.jsp"></c:import>
-
+<c:import url="../menu.jsp"></c:import>
 <body>
-	<h1>O Remedio foi cadastrado</h1>
+	<h1>A Venda foi Efetuada</h1>
 </body>
 </html>

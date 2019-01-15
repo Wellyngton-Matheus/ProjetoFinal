@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Vendas</title>
+<title>Insert title here</title>
 </head>
 <body>
 	<c:import url="../menu.jsp"></c:import>
@@ -30,4 +30,5 @@
 		</h3>
 		<input type="submit" value="Comprar">
 	</form>
+</body>
 </html>

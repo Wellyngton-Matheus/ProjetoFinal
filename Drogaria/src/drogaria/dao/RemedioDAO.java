@@ -18,7 +18,7 @@ public class RemedioDAO {
 	}
 
 	public boolean inserir(Remedio remedio) {
-		String sql = "insert into remedio (nome, funcionalidade, preco) values (?, ?, ?, ?);";
+		String sql = "insert into remedio (nome, funcionalidade, preco) values (?, ?, ?);";
 
 		try {
 			PreparedStatement stmt = this.connection.prepareStatement(sql);
@@ -48,7 +48,6 @@ public class RemedioDAO {
 				remedio.setNome(rs.getString("nome"));
 				remedio.setFuncionalidade(rs.getString("funcionalidade"));
 				remedio.setPreco(rs.getString("preco"));
-				remedio.setGenerico(rs.getBoolean("generico"));
 
 				result.add(remedio);
 			}
@@ -78,7 +77,7 @@ public class RemedioDAO {
 		Remedio result = null;
 
 		try {
-			PreparedStatement stmt = this.connection.prepareStatement("select * from remedio where titulo = ?;");
+			PreparedStatement stmt = this.connection.prepareStatement("select * from remedio where id = ?;");
 			stmt.setLong(1, l);
 			ResultSet rs = stmt.executeQuery();
 
@@ -89,7 +88,6 @@ public class RemedioDAO {
 				result.setNome(rs.getString("nome"));
 				result.setFuncionalidade(rs.getString("Funcionalidade"));
 				result.setPreco(rs.getString("preco"));
-				result.setGenerico(rs.getBoolean("generico"));
 			}
 			rs.close();
 			stmt.close();
