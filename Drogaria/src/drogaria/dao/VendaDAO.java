@@ -29,11 +29,10 @@ public class VendaDAO {
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
-			stmt.setLong(1, venda.getRemedio().getId());
-			//stmt.setLong(2, venda.getCliente().getId());			
+			stmt.setLong(1, venda.getCliente().getId());
+			stmt.setLong(2, venda.getRemedio().getId());						
 			Calendar dataVenda = Calendar.getInstance();
 			stmt.setDate(3, new java.sql.Date(dataVenda.getTimeInMillis()));
-			stmt.setDate(4, null);
 			
 			stmt.execute();
 			stmt.close();

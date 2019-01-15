@@ -41,4 +41,9 @@ public Remedio getRemedio() {
 public void setRemedio(Remedio Remedio) {
 	this.Remedio = Remedio;
 	}
+
+@Override
+public String toString() {
+	return "Venda [id=" + id + ", Cliente=" + Cliente + ", Remedio=" + Remedio + ", dataVenda=" + dataVenda + "]";
+}
 }

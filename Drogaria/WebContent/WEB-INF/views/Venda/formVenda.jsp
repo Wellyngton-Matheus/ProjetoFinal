@@ -22,7 +22,7 @@
 		</h3>
 
 		<h3>
-			Livro <select name="remedio.id">
+			Remedio <select name="remedio.id">
 				<c:forEach var="remedio" items="${remedios }">
 					<option value="${remedio.id }">${remedio.nome }</option>
 				</c:forEach>

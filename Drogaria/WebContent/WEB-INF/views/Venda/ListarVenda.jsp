@@ -19,13 +19,13 @@
 			<th>Nome do Remedio</th>
 			<th>Data da Venda</th>
 		</tr>
-		<c:forEach var="venda" items="${venda }">
+		<c:forEach var="venda" items="${vendas }">
 			<tr>
-				<td>${vanda.cliente.nome }</td>
-				<td>${vanda.remedio.titulo }</td>
+				<td>${venda.cliente.nome }</td>
+				<td>${venda.remedio.nome }</td>
 				<td><fmt:formatDate value="${venda.dataVenda.time}"
 						pattern="dd/MM/yyyy" /></td>
-				<td><a href="/Drogaria/Venda/remover?id=${vanda.id}">remover</a></td>
+				<td><a href="/Drogaria/Venda/remover?id=${venda.id}">remover</a></td>
 			</tr>
 		</c:forEach>
 	</table>
