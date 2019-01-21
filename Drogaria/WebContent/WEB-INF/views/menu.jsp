@@ -5,11 +5,11 @@
 <nav>
  	<ul>
 		<li><a href="/Drogaria/">Home</a></li>
-		<li><a href="/Drogaria/Cliente/form">Adicionar Cliente</a></li>
-		<li><a href="/Drogaria/Remedio/AddRemedio">Adicionar Remedio</a></li>
+		<li><a href="/Drogaria/Cliente/form">Cadastrar Cliente</a></li>
+		<li><a href="/Drogaria/Remedio/AddRemedio">Cadastrar Remedio</a></li>
 		<li><a href="/Drogaria/Cliente/ListarCliente">Listar Clientes</a></li>
 		<li><a href="/Drogaria/Remedio/ListarRemedio">Listar Remedio</a></li>
-		<li><a href="/Drogaria/Venda/formVenda">Efetuar compras</a></li>
+		<li><a href="/Drogaria/Venda/formVenda">Efetuar Compras</a></li>
 		<li><a href="/Drogaria/Venda/ListarVenda">Listar Vendas</a></li>
 	</ul>
 </nav>

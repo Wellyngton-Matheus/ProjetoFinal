@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+<body bgcolor="F78181">
 	<c:import url="../menu.jsp"></c:import>
 	<h1>O cliente foi cadastrado</h1>
 </body>

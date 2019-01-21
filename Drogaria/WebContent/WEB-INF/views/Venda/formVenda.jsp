@@ -28,6 +28,14 @@
 				</c:forEach>
 			</select>
 		</h3>
+		
+		<h3>
+			Preço Remedio <select name="remedio.id">
+				<c:forEach var="remedio" items="${remedios }">
+					<option value="${remedio.id }">${remedio.preco }</option>
+				</c:forEach>
+			</select>
+		</h3>
 		<input type="submit" value="Comprar">
 	</form>
 </body>

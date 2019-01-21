@@ -8,11 +8,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Cadastrando Remedio</title>
 </head>
-<body>
+<body bgcolor="F78181">
 	<c:import url="../menu.jsp"></c:import>
 
 
-	<h3>Adicionar Remédio</h3>
+	<h3>Cadastrar Remédio</h3>
 	<form action="/Drogaria/Remedio/executarCadastro" method="post">
 		<div>
 			<label>Nome:</label> <input type="text" name="nome">
@@ -22,9 +22,9 @@
 				name="funcionalidade">
 		</div>
 		<div>
-			<label>preco:</label> <input type="text" name="preco">
+			<label>Preco:</label> <input type="text" name="preco">
 		</div>
-		<button type="submit">Adicionar</button>
+		<button type="submit">Cadastrar</button>
 	</form>
 </body>
 </html>

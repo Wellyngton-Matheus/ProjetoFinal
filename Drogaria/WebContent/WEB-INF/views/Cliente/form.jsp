@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Cadastro de Cliente</title>
 </head>
-<body>
+<body bgcolor="F78181">
 	<c:import url="../menu.jsp"></c:import>
 	<h1>Cadastrando cliente</h1>
 	<form action="executarCadastro" method="post">

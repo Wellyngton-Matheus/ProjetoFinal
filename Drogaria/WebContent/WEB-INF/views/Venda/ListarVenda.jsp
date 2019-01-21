@@ -17,12 +17,14 @@
 		<tr>
 			<th>Nome do Cliente</th>
 			<th>Nome do Remedio</th>
+			<th>Preço do Remedio</th>
 			<th>Data da Venda</th>
 		</tr>
 		<c:forEach var="venda" items="${vendas }">
 			<tr>
 				<td>${venda.cliente.nome }</td>
 				<td>${venda.remedio.nome }</td>
+				<td>${venda.remedio.preco }</td>
 				<td><fmt:formatDate value="${venda.dataVenda.time}"
 						pattern="dd/MM/yyyy" /></td>
 				<td><a href="/Drogaria/Venda/remover?id=${venda.id}">remover</a></td>

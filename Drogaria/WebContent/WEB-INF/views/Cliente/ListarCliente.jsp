@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Usuarios Cadastrados</title>
 </head>
-<body>
+<body bgcolor="F78181">
 
 	<c:import url="../menu.jsp"></c:import>
 
