@@ -1,0 +1,32 @@
+create table cliente  (
+	id bigint not null auto_increment,
+	
+    nome varchar (255),
+    senha varchar (255),
+    cpf varchar (255),
+    email varchar (255),
+    numero varchar (255),
+    
+    primary key (id)
+);
+
+create table remedio  (
+	id bigint not null auto_increment,
+	
+    nome varchar (255),
+    funcionalidade varchar (255),
+    preco varchar (255),
+    
+    primary key (id)
+);
+
+create table venda  (
+    id bigint not null auto_increment,
+    cliente bigint,
+    remedio bigint,
+    dataVenda date,
+    
+    primary key (id),
+    foreign key (cliente) references cliente (id),
+    foreign key (remedio) references remdedio (id)
+);
